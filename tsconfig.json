@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "target": "esnext",
+    "lib": ["esnext"]
+  },
+  "include": [
+    "src/**/*.ts",
+    "tests/**/*.ts"
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "name": "@dczajkowski/stylelint-rules",
+  "version": "0.0.1",
+  "description": "A set of opinionated rules for stylelint.",
+  "main": "src/index.js",
+  "scripts": {
+    "prepublishOnly": "yarn test && yarn lint",
+    "build": "tsc",
+    "test": "yarn build && tape 'tests/**/*.js' | tap-spec",
+    "prettify": "prettier src/**/*.ts tests/**/*.ts --write",
+    "lint": "prettier src/**/*.ts tests/**/*.ts --check"
+  },
+  "author": "Dariusz Czajkowski",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DCzajkowski/stylelint-rules.git"
+  },
+  "dependencies": {
+    "postcss": "^7.0.17",
+    "postcss-load-config": "^2.1.0",
+    "postcss-value-parser": "^4.0.0"
+  },
+  "peerDependencies": {
+    "stylelint": "^10.1.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.15",
+    "@types/stylelint": "^9.10.0",
+    "jest": "^24.8.0",
+    "postcss-cssnext": "^3.1.0",
+    "prettier": "^1.18.2",
+    "stylelint": "^10.1.0",
+    "stylelint-test-rule-tape": "^0.2.0",
+    "tap-spec": "^5.0.0",
+    "tape": "^4.11.0",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.5.3"
+  },
+  "files": [
+    "README.md",
+    "LICENSE",
+    "src/**/*.js"
+  ]
+}
