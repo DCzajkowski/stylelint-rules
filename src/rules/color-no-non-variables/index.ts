@@ -33,8 +33,16 @@ export default function() {
           return;
         }
 
+        const literal =
+          type === 'function'
+            ? postcss.list
+                .space(node.value)
+                .filter(v => v.startsWith(value))
+                .shift()
+            : value;
+
         stylelint.utils.report({
-          message: messages.illegalColorLiteral(type === 'function' ? node.value : value, node.prop),
+          message: messages.illegalColorLiteral(literal, node.prop),
           result: postcssResult,
           node,
           ruleName,

@@ -16,6 +16,22 @@ testRule(rule, {
     { code: '.a { background-color: black; }', message: messages.illegalColorLiteral('black', 'background-color') },
     { code: '.a { border: 1px solid #000; }', message: messages.illegalColorLiteral('#000', 'border') },
     {
+      code: '.a { border: 1px solid rgba(0, 0, 0, 0.15); }',
+      message: messages.illegalColorLiteral('rgba(0, 0, 0, 0.15)', 'border'),
+    },
+    {
+      code: '.a { border-color: #000 rgba(0, 0, 0, 0.15); }',
+      message: messages.illegalColorLiteral('#000', 'border-color'),
+    },
+    {
+      code: '.a { border-color: rgba(0, 0, 0, 0.15) #000; }',
+      message: messages.illegalColorLiteral('rgba(0, 0, 0, 0.15)', 'border-color'),
+    },
+    {
+      code: '.a { border-color: rgba(0, 0, 0, 0.35) rgba(0, 0, 0, 0.25); }',
+      message: messages.illegalColorLiteral('rgba(0, 0, 0, 0.35)', 'border-color'),
+    },
+    {
       code: '.a { border-top-color: rgb(10, 20, 30); }',
       message: messages.illegalColorLiteral('rgb(10, 20, 30)', 'border-top-color'),
     },
