@@ -3,7 +3,7 @@ import rule, { messages, ruleName } from '../src/rules/no-floats-with-unit';
 
 testRule(rule, {
   ruleName,
-  config: ['px'],
+  config: [['px']],
   accept: [
     { code: '.a { border-width: 5px; }' },
     { code: '.a { border: 2px solid red; }' },

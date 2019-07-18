@@ -10,14 +10,14 @@ export const messages = stylelint.utils.ruleMessages(ruleName, {
     `Illegal use of a literal '${color}' with property '${property}'. Expected a variable.`,
 });
 
-export default function() {
+export default function(options: boolean) {
   return async function(postcssRoot: postcss.Root, postcssResult: postcss.Result) {
     const isVariableDeclaration = (node: postcss.Declaration) => node.prop.startsWith('--');
     const isColorLiteral = (value: string) =>
       value.startsWith('#') || colorNames.includes(value) || colorFunctions.includes(value);
     const validOptions = stylelint.utils.validateOptions(postcssResult, ruleName);
 
-    if (!validOptions) {
+    if (!validOptions || options !== true) {
       return;
     }
 

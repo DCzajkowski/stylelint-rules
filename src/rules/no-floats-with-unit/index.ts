@@ -9,11 +9,11 @@ export const messages = stylelint.utils.ruleMessages(ruleName, {
     `Illegal use of a float '${number}' with unit '${unit}' in property '${property}'.`,
 });
 
-export default function(units: string[]) {
+export default function(units: string[] = []) {
   return async function(postcssRoot: postcss.Root, postcssResult: postcss.Result) {
     const validOptions = stylelint.utils.validateOptions(postcssResult, ruleName);
 
-    if (!validOptions) {
+    if (!validOptions || !Array.isArray(units)) {
       return;
     }
 
