@@ -1,5 +1,5 @@
 # dczajkowski/no-floats-with-unit
-Requires specific units' values to be full integers instead of floats.
+Requires specific units' values to be full integers instead of floats. The most common use-case is to disallow pixel values to be floats.
 
 ## Usage
 ```json
