@@ -1,6 +1,6 @@
 {
   "name": "@dczajkowski/stylelint-rules",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A set of opinionated rules for stylelint.",
   "main": "src/index.js",
   "scripts": {
