@@ -3,7 +3,7 @@ import postcss from 'postcss';
 import { unitRegex } from '../../helpers';
 import { namespace } from '../../constants';
 
-export const ruleName = `${namespace}/declaration-property-unit-whitelist`;
+export const ruleName = `${namespace}/no-floats-with-unit`;
 export const messages = stylelint.utils.ruleMessages(ruleName, {
   noFloat: (number: string, unit: string, property: string) =>
     `Illegal use of a float '${number}' with unit '${unit}' in property '${property}'.`,
