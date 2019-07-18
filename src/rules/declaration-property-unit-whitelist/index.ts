@@ -1,7 +1,8 @@
 import stylelint from 'stylelint';
 import postcss from 'postcss';
 import postcssrc from 'postcss-load-config';
-import { unitRegex, isStringRegex, report } from './helpers';
+import { isStringRegex, report } from './helpers';
+import { unitRegex } from '../../helpers';
 import { namespace } from '../../constants';
 
 export const ruleName = `${namespace}/declaration-property-unit-whitelist`;
@@ -37,7 +38,7 @@ export default function(options: Options) {
           .space(node.value)
           .filter(value => unitRegex.test(value))
           .map(value => value.match(unitRegex))
-          .map(([, unit]) => unit)
+          .map(([, , unit]) => unit)
           .filter(unit => !allowedUnits.includes(unit))
           .slice(0, 1)
           .forEach(unit => report(postcssResult, node, unit));
