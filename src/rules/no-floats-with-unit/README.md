@@ -5,7 +5,7 @@ Requires specific units' values to be full integers instead of floats.
 ```json
 {
   "rules": {
-    "dczajkowski/dczajkowski/no-floats-with-unit": [['px', '%']]
+    "dczajkowski/dczajkowski/no-floats-with-unit": [["px", "%"]]
   }
 }
 ```
