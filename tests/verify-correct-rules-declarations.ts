@@ -1,5 +1,6 @@
 import { rules, failingRules, readmeEntries } from './helpers';
 import test from 'tape';
+import { namespace } from '../src/constants';
 
 test('all rules have required files', t => {
   t.plan(rules.length);
@@ -32,6 +33,20 @@ test('all rules have their entry in the readme', t => {
     t.true(
       ruleEntry.link === `[${name}](./src/rules/${name}/README.md)`,
       `Rule '${name}' has a valid link to the rule's readme file`,
+    );
+  });
+});
+
+test('all rules export correct name', t => {
+  t.plan(rules.length);
+
+  rules.forEach(({ name }) => {
+    const { ruleName } = require(`../src/rules/${name}`);
+
+    t.equals(
+      ruleName,
+      `${namespace}/${name}`,
+      `Exported rule name from the rule '${name}' matches '${namespace}/${name}'`,
     );
   });
 });
