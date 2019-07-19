@@ -5,6 +5,7 @@ node_js:
 
 before_script:
   - travis_retry yarn
+  - yarn link
 
 script:
   - yarn lint
