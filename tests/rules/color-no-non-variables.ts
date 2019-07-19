@@ -1,5 +1,5 @@
 import testRule from 'stylelint-test-rule-tape';
-import rule, { messages, ruleName } from '../src/rules/color-no-non-variables';
+import rule, { messages, ruleName } from '../../src/rules/color-no-non-variables';
 
 testRule(rule, {
   ruleName,

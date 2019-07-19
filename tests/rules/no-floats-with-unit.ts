@@ -1,5 +1,5 @@
 import testRule from 'stylelint-test-rule-tape';
-import rule, { messages, ruleName } from '../src/rules/no-floats-with-unit';
+import rule, { messages, ruleName } from '../../src/rules/no-floats-with-unit';
 
 testRule(rule, {
   ruleName,

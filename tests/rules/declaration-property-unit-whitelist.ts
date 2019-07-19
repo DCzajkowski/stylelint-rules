@@ -1,5 +1,5 @@
 import testRule from 'stylelint-test-rule-tape';
-import rule, { messages, ruleName } from '../src/rules/declaration-property-unit-whitelist';
+import rule, { messages, ruleName } from '../../src/rules/declaration-property-unit-whitelist';
 
 testRule(rule, {
   ruleName,
