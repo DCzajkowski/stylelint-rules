@@ -4,7 +4,7 @@
   "description": "A set of opinionated rules for stylelint.",
   "main": "src/index.js",
   "scripts": {
-    "clean": "find src tests -name '*.js' | xargs rm",
+    "clean": "if [[ RUNNING_IN_CI -ne 1 ]]; then find src tests -name '*.js' | xargs rm; fi",
     "prepublishOnly": "yarn test && yarn lint",
     "build": "yarn clean && tsc",
     "test": "yarn build && tape 'tests/**/*.js' | tap-spec",
