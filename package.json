@@ -4,8 +4,9 @@
   "description": "A set of opinionated rules for stylelint.",
   "main": "src/index.js",
   "scripts": {
+    "clean": "echo \"if [[ RUNNING_IN_CI -ne 1 ]]; then find src tests -name '*.js' | xargs rm; fi\" | bash",
     "prepublishOnly": "yarn test && yarn lint",
-    "build": "tsc",
+    "build": "yarn clean && tsc",
     "test": "yarn build && tape 'tests/**/*.js' | tap-spec",
     "prettify": "prettier src/**/*.ts tests/**/*.ts --write",
     "lint": "prettier src/**/*.ts tests/**/*.ts --check"
