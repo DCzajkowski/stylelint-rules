@@ -6,6 +6,7 @@ node_js:
 before_script:
   - travis_retry yarn
   - yarn link
+  - yarn link '@dczajkowski/stylelint-rules'
 
 script:
   - yarn lint
