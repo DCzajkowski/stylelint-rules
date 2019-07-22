@@ -1,5 +1,6 @@
 import stylelint from 'stylelint';
 import postcss from 'postcss';
+import valueParser from 'postcss-value-parser';
 import { namespace } from '../../constants';
 import { isColorLiteral } from '../../helpers';
 
@@ -32,7 +33,7 @@ export default function(allowedFiles: string[] = []) {
         },
       } = node;
 
-      if (!isVariableDeclaration(prop) || !isColorLiteral(value) || !file) {
+      if (!isVariableDeclaration(prop) || !file) {
         return;
       }
 
@@ -42,11 +43,21 @@ export default function(allowedFiles: string[] = []) {
         return;
       }
 
-      stylelint.utils.report({
-        message: messages.illegalVariableDeclaration(prop, relativePath, allowedFiles),
-        result: postcssResult,
-        ruleName,
-        node,
+      let reported = false;
+
+      valueParser(value).walk(({ value }) => {
+        if (reported || !isColorLiteral(value)) {
+          return;
+        }
+
+        stylelint.utils.report({
+          message: messages.illegalVariableDeclaration(prop, relativePath, allowedFiles),
+          result: postcssResult,
+          ruleName,
+          node,
+        });
+
+        reported = true;
       });
     });
   };
