@@ -26,6 +26,7 @@ In your `.stylelintrc` config:
 | ❌ | [color-no-non-variables](./src/rules/color-no-non-variables/README.md) | Disallow usage of color literals (allows only variables) |
 | ❌ | [no-floats-with-unit](./src/rules/no-floats-with-unit/README.md) | Disallow usage of floats with certain units |
 | ❌ | [variables-in-files](./src/rules/variables-in-files/README.md) | Allow for variables to be declared only in specified files |
+| ❌ | [color-variables-in-files](./src/rules/color-variables-in-files/README.md) | Allow for variables containing color values to be declared only in specified files |
 <!-- /rules-declaration -->
 
 ## License
