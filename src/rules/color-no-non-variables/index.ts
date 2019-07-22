@@ -1,7 +1,7 @@
 import stylelint from 'stylelint';
 import postcss from 'postcss';
 import valueParser from 'postcss-value-parser';
-import { functions as colorFunctions, names as colorNames } from './css-colors';
+import { isColorLiteral } from '../../helpers';
 import { namespace } from '../../constants';
 
 export const ruleName = `${namespace}/color-no-non-variables`;
@@ -13,8 +13,6 @@ export const messages = stylelint.utils.ruleMessages(ruleName, {
 export default function(options: boolean) {
   return async function(postcssRoot: postcss.Root, postcssResult: postcss.Result) {
     const isVariableDeclaration = (node: postcss.Declaration) => node.prop.startsWith('--');
-    const isColorLiteral = (value: string) =>
-      value.startsWith('#') || colorNames.includes(value) || colorFunctions.includes(value);
     const validOptions = stylelint.utils.validateOptions(postcssResult, ruleName);
 
     if (!validOptions || options !== true) {

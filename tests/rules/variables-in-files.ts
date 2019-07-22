@@ -1,6 +1,7 @@
 import { messages } from '../../src/rules/variables-in-files';
 import test from 'tape';
 import { lint } from 'stylelint';
+import { Warning } from '../helpers/types';
 
 const runStylelint = async (allowedFiles: string[], file: string) =>
   lint({
@@ -29,14 +30,6 @@ test('accepts variable declarations in allowed files', async t => {
 
   t.false(errored);
 });
-
-interface Warning {
-  line: number;
-  column: number;
-  rule: string;
-  severity: 'error';
-  text: string;
-}
 
 test('disallows variable declarations in not-allowed files', async t => {
   t.plan(4);
