@@ -25,6 +25,7 @@ In your `.stylelintrc` config:
 | ❌ | [declaration-property-unit-whitelist](./src/rules/declaration-property-unit-whitelist/README.md) | Require specific properties to have only given units |
 | ❌ | [color-no-non-variables](./src/rules/color-no-non-variables/README.md) | Disallow usage of color literals (allows only variables) |
 | ❌ | [no-floats-with-unit](./src/rules/no-floats-with-unit/README.md) | Disallow usage of floats with certain units |
+| ❌ | [variables-in-files](./src/rules/variables-in-files/README.md) | Allow for variables to be declared only in specified files |
 <!-- /rules-declaration -->
 
 ## License
