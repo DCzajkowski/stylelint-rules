@@ -154,4 +154,5 @@ export const names = [
   'whitesmoke',
   'yellow',
   'yellowgreen',
+  'rebeccapurple',
 ];
